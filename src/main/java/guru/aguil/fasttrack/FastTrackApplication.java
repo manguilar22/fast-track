@@ -1,4 +1,4 @@
-package guru.aguilar.fasttrack;
+package guru.aguil.fasttrack;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

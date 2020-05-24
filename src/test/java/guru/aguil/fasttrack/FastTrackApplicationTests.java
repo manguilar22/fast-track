@@ -1,4 +1,4 @@
-package guru.aguilar.fasttrack;
+package guru.aguil.fasttrack;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
