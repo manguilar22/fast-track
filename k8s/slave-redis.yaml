@@ -22,7 +22,7 @@ spec:
         - name: redis-slave
           image: gcr.io/google_samples/gb-redisslave:v3
           ports:
-            - containerPort: 6397
+            - containerPort: 6379
           env:
             - name: GET_HOSTS_FROM
               value: dns
@@ -40,6 +40,6 @@ spec:
     role: slave
     tier: backend
   ports:
-    - port: 6397
-      targetPort: 6397
+    - port: 6379
+      targetPort: 6379
       nodePort: 32022

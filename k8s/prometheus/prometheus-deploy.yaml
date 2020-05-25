@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-spring-metrics
+  namespace: monitoring
+  labels:
+    app: prometheus-metrics
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-metrics
+  template:
+    metadata:
+      labels:
+        app: prometheus-metrics
+    spec:
+      volumes:
+        - name: prometheus-config
+          configMap:
+            name: spring-prometheus-config  #kubectl create cm spring-prometheus-config --from-file=./prometheus.yml
+
+      containers:
+        - name: prometheus-spring-metrics
+          image: prom/prometheus:latest
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - name: prometheus-config
+              mountPath: /etc/prometheus/

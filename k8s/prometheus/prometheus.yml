@@ -1,0 +1,14 @@
+# Prometheus Configuration File
+
+# spring-prometheus-config
+#  kubectl create cm spring-prometheus-config --namespace=monitoring --from-file=./prometheus.yml
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: "spring_micrometer"
+    metrics_path: "/actuator/prometheus"
+    scrape_interval: 5s
+    static_configs:
+      - targets: []
+      #- targets: ["10-244-1-106.spring-app-svc.default.svc.cluster.local:8080 " ]

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="9bc09d2f-5f25-42d5-88c5-7ae60b2bdae0" name="184.72.16.225">
-        <fileTransfer rootFolder="/home/cloud_user/dev" accessType="SFTP" host="184.72.16.225" port="22" sshConfigId="296f479a-47ca-4e71-b757-e1d81280a786" sshConfig="cloud_user@184.72.16.225:22 password">
+      <webServer id="9bc09d2f-5f25-42d5-88c5-7ae60b2bdae0" name="LA">
+        <fileTransfer rootFolder="/home/cloud_user/dev" accessType="SFTP" host="18.144.16.101" port="22" sshConfigId="296f479a-47ca-4e71-b757-e1d81280a786" sshConfig="cloud_user@18.144.16.101:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
