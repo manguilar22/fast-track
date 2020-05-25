@@ -14,8 +14,12 @@ services:
         REDIS_HOST: redis
       depends_on:
         - redis
+
+
   redis:
       container_name: redis-server
       image: redis:latest
+      hostname: redis
       ports:
       - "6379:6379"
+
