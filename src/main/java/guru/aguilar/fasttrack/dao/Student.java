@@ -12,6 +12,7 @@ import java.io.Serializable;
 @RedisHash("Student")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student implements Serializable {
 
     public enum Classification {
@@ -22,11 +23,5 @@ public class Student implements Serializable {
     @Indexed private  String name;
     @Indexed private  Classification classification;
     @Indexed private  Integer grade;
-
-    public Student(String name, Classification classification, Integer grade){
-        this.name = name;
-        this.classification = classification;
-        this.grade = grade;
-    }
 
 }
