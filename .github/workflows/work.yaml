@@ -1,0 +1,18 @@
+
+name: spring-workflow
+on:
+  push:
+    branch: ["master"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Spring Boot Container
+        run: |
+          docker login --username=manguilar22 --password=${{ secrets.DOCKER_PW }}
+          docker build --tag manguilar22/spring:redis --no-cache --pull --file Dockerfile .
+          docker push manguilar22/spring:redis

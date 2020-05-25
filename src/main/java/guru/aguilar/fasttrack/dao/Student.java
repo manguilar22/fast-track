@@ -2,25 +2,31 @@ package guru.aguilar.fasttrack.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import java.io.Serializable;
 
 @RedisHash("Student")
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 public class Student implements Serializable {
 
     public enum Classification {
         FRESHMAN, SOPHMORE, JUNIOR, SENIOR
     }
 
-    private  String id;
-    private  String name;
-    private  Classification classification;
-    private  Integer grade;
+    @Id private  String id;
+    @Indexed private  String name;
+    @Indexed private  Classification classification;
+    @Indexed private  Integer grade;
 
-    protected Student(){}
-
+    public Student(String name, Classification classification, Integer grade){
+        this.name = name;
+        this.classification = classification;
+        this.grade = grade;
+    }
 
 }
