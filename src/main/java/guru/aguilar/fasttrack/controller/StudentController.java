@@ -18,41 +18,47 @@ public class StudentController {
     @Autowired
     private RedisService redisService;
 
-
     @GetMapping("/test")
+    @ResponseBody
     public String test(){
         return redisService.getStoredInCacheNames().toString();
     }
 
     @GetMapping("/all")
+    @ResponseBody
     public String getAllRecords(){
         return redisService.findAll().toString();
     }
 
     @GetMapping("/")
+    @ResponseBody
     public String index(){
         List<Student> st = new ArrayList<>();
         redisService.findAll().forEach(st::add);
-        return st.toString();
+        String rs = st.toString();
+        return "indexStudentPage";
     }
 
     @PostMapping("/")
+    @ResponseBody
     public Student addStudent(@RequestBody Student student){
         redisService.insertNewStudent(student);
         return student;
     }
 
     @GetMapping("/{id}")
+    @ResponseBody
     public Student findById(@PathVariable String id){
         return redisService.findById(id);
     }
 
     @GetMapping("/get")
+    @ResponseBody
     public Student getStudentByName(@RequestParam String name){
         return redisService.getSomeStudentByName(name);
         }
 
-    @GetMapping("/flush")
+    @PostMapping("/flush")
     public void flushCache(){
         redisService.flushCache();
     }

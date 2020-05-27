@@ -34,6 +34,10 @@ repositories {
 }
 
 dependencies {
+	// VMware wavefront
+	implementation 'com.wavefront:wavefront-spring-boot-starter:2.0.0-RC1'
+
+
 	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.0.RC1'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
