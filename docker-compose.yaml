@@ -14,6 +14,7 @@ services:
         REDIS_HOST: redis
       depends_on:
         - redis
+        - wavefront
 
 
   redis:
@@ -22,4 +23,15 @@ services:
       hostname: redis
       ports:
       - "6379:6379"
+
+  wavefront:
+    container_name: wavefront-proxy
+    image: wavefronthq/proxy:latest
+    environment:
+      WAVEFRONT_URL: ""
+      WAVEFRONT_TOKEN: ""
+      JAVA_HEAP: "512m"
+    ports:
+      "2878:2878"
+
 

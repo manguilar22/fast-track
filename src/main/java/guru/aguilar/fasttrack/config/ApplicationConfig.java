@@ -1,5 +1,9 @@
 package guru.aguilar.fasttrack.config;
 
+import io.micrometer.core.instrument.Clock;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.wavefront.WavefrontConfig;
+import io.micrometer.wavefront.WavefrontMeterRegistry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
@@ -40,6 +44,31 @@ public class ApplicationConfig {
         template.setConnectionFactory(redisConnectionFactory());
         return template;
     }
+
+    @Bean
+    public MeterRegistry meterRegistry(){
+        WavefrontConfig config = new WavefrontConfig() {
+            @Override
+            public String uri() {
+                return "proxy://127.0.0.1:2878";
+            }
+
+            @Override
+            public String get(String key) {
+                return null;
+            }
+
+            @Override
+            public String prefix() {
+                return "wavefront";
+            }
+        };
+        MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
+
+        return registry;
+
+    }
+
 
 }
 
