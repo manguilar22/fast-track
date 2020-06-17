@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-
+/*
     @Autowired
     private RedisService redisService;
 
@@ -36,7 +36,7 @@ public class StudentController {
         List<Student> st = new ArrayList<>();
         redisService.findAll().forEach(st::add);
         String rs = st.toString();
-        return "indexStudentPage";
+        return rs;
     }
 
     @PostMapping("/")
@@ -62,33 +62,5 @@ public class StudentController {
     public void flushCache(){
         redisService.flushCache();
     }
-
-/*
-    @Autowired
-    private StudentRepository studentRepository;
-
-    @RequestMapping("/")
-    public String message(){
-        return "home";
-    }
-
-    @RequestMapping("/add")
-    public String addNoteToRedis(){
-        Student student = new Student("1","A",Student.Classification.FRESHMAN,100);
-        try {
-            studentRepository.save(student);
-            return "added to redis: " + student.toString();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return "FAIL";
-        }
-
-    @RequestMapping("/all")
-    public Iterable<Student> getAllNotesInRedis(){
-        return studentRepository.findAll();
-    }
 */
-
-
 }

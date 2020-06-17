@@ -1,4 +1,4 @@
-FROM gradle:6.4-jdk8 AS build
+FROM gradle:6.5-jdk8 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 
 ENV REDIS_HOST 127.0.0.1

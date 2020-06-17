@@ -34,16 +34,29 @@ repositories {
 }
 
 dependencies {
+
+	// Jedis
+	//compile group: 'redis.clients', name: 'jedis', version: '3.3.0'
+
+	// Redisson
+	compile group: 'org.redisson', name: 'redisson', version: '3.2.0'
+
+	// MySQL
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.20'
+	//runtimeOnly 'mysql:mysql-connector-java'
+
 	// VMware wavefront
 	implementation 'com.wavefront:wavefront-spring-boot-starter:2.0.0-RC1'
 
 	// VMware micrometer
 	compile 'io.micrometer:micrometer-registry-wavefront:latest.release'
 
-	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.0.RC1'
+	//VMware Wavefront Metrics SDK
+	//compile group: 'com.wavefront', name: 'dropwizard-metrics-sdk', version: '0.9.0'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-	compile group: 'redis.clients', name: 'jedis', version: '3.3.0'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RC1'

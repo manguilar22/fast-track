@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Service
 public class RedisService {
-
+/*
     @Autowired
     private StudentRepository studentRepository;
 
@@ -65,5 +64,5 @@ public class RedisService {
             cacheManager.getCache(s).clear();
         }
     }
-
+*/
 }
